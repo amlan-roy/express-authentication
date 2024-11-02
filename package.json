@@ -1,0 +1,30 @@
+{
+  "name": "express-authentication",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Authentication project created using express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amlan-roy/express-authentication.git"
+  },
+  "author": "Amlan Roy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amlan-roy/express-authentication/issues"
+  },
+  "homepage": "https://github.com/amlan-roy/express-authentication#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
