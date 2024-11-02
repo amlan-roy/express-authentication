@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDb } from "./app/config/dbConnection.js";
 import errorHandler from "./app/middlewares/errorHandler.js";
+import authRoute from "./app/routes/auth.js";
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // Routes
-// Add the routes here
+app.use("/api/auth", authRoute);
 
 // Error handlerss
 app.use(errorHandler);
