@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDb } from "./app/config/dbConnection.js";
+import errorHandler from "./app/middlewares/errorHandler.js";
 
 dotenv.config();
 
@@ -17,7 +18,7 @@ app.use(express.urlencoded());
 // Add the routes here
 
 // Error handlerss
-// Add the error handlers here
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log("server running on port" + port);
