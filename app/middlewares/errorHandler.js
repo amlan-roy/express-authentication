@@ -2,15 +2,19 @@ import {
   ERROR_CODE_TO_ERROR_TITLE_MAP,
   ERROR_TITLES,
   ERROR_CODES,
-} from "../constants/constants.js";
+} from "../utils/constants/constants.js";
 
 const errorHandler = (err, req, res, next) => {
-  const { statusCode = ERROR_CODES.INTERNAL_SERVER_ERROR } = res || {};
+  console.log("jabba");
 
-  let errorTitle = ERROR_CODE_TO_ERROR_TITLE_MAP[statusCode];
+  const statusCode = res.statusCode
+    ? res.statusCode
+    : ERROR_CODES.INTERNAL_SERVER_ERROR;
+  res.status(statusCode);
+
+  const errorTitle = ERROR_CODE_TO_ERROR_TITLE_MAP[statusCode];
 
   if (!errorTitle) {
-    res.status(ERROR_CODES.INTERNAL_SERVER_ERROR);
     const env = process.env.NODE_ENV || "development";
     const stackTrace =
       env === "development"
@@ -23,7 +27,6 @@ const errorHandler = (err, req, res, next) => {
       title: ERROR_TITLES.DEFAULT,
       ...stackTrace,
     });
-    next();
   } else {
     res.json({
       title: errorTitle,

@@ -1,0 +1,7 @@
+const SALT_WORK_FACTOR = 10;
+
+const JWT_EXPIRY_TIME = {
+  FIFTEEN_MIN: "15m",
+};
+
+export { SALT_WORK_FACTOR, JWT_EXPIRY_TIME };
